@@ -2,7 +2,7 @@ const readlineSync = require("readline-sync");
 const fs = require("fs");
 
 class View {
-  choiceTheme() {
+  static choiceTheme() {
     //Приветствие и выбор темы(файл .txt)
     const userName = readlineSync.question("Друг как тебя зовут? 🤔\n");
     console.log("Привет " + userName + " 🤟");
@@ -19,36 +19,35 @@ class View {
         animals,
         "Какое животное ты хочешь выбрать? 🤔\n"
       );
-    console.log("Супер! " + animals[index] + ", отличный выбор 👍");
+    console.log("Супер! " + animals[index] + ", отличный выбор 👍\n");
 
-    return [gamer, txtFile[[index]]];
+    return txtFile[[index]];
   }
 
-  QuestionAnswer(questions, answers) {
+  static questionAnswer(questions, answers) {
     let coins = 0;
     for (let i = 0; i <= questions.length; i++) {
       if (i === questions.length) {
-        this.finalFar(newGamer, coins);
+        this.finalFar(coins);
         return;
       } else {
-        answersI = readlineSync.question(`${questions[i]}`);
+        let answersI = readlineSync.question(`${questions[i]}\n`);
         if (answersI === answers[i]) {
           coins = coins + 1;
           console.log("Дружище это верный ответ + 1 золотых 💰");
         } else {
-          console.log("Дружище не в этот раз 👎👎👎");
+          console.log("Дружище не в этот раз 👎👎👎\n");
         }
       }
     }
   }
 
-  finalFar(newGamer, coins) {
-    console.log([
-      `${newGamer}` +
-        " ты круто проходил игру 💪  и ты заработал - " +
+  static finalFar(coins) {
+    console.log(
+      " ты круто проходил игру 💪 и ты заработал - " +
         `${coins}` +
-        " золотых 💰",
-    ]);
+        " золотых 💰"
+    );
   }
 }
 

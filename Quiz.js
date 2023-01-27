@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-class Quiz{
+class Quiz {
 
 questions(path) {
   const readFileLines = (filename) =>
@@ -32,6 +32,6 @@ const a = new Quiz()
 const anse = a.answers(
     'topics/nighthawk_flashcard_data.txt'
 )
-console.log(anse)
+
 module.exports = Quiz
 // console.log(answers());

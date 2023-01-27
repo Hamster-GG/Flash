@@ -1,4 +1,5 @@
 class Gamer{
+    constructor()
 const newGamer = View.choiceTheme.gamer
 const coins = 0
 console.log(newGamer)
