@@ -1,9 +1,11 @@
 const fs = require("fs");
 
-function questions() {
+class Quiz{
+
+questions(path) {
   const readFileLines = (filename) =>
     fs.readFileSync(filename).toString("UTF8").split("\n");
-  let arrContent = readFileLines("topics/nighthawk_flashcard_data.txt");
+  let arrContent = readFileLines(path);
   let questions = [];
   for (let i = 0; i < arrContent.length; i++) {
     if (i % 2 === 0) {
@@ -12,12 +14,12 @@ function questions() {
   }
   return questions;
 }
-console.log(questions());
+// console.log(questions());
 
-function answers() {
+answers(path) {
   const readFileLines = (filename) =>
     fs.readFileSync(filename).toString("UTF8").split("\n");
-  let arrContent = readFileLines("topics/nighthawk_flashcard_data.txt");
+  let arrContent = readFileLines(path);
   let answers = [];
   for (let i = 0; i < arrContent.length; i++) {
     if (i % 2 !== 0) {
@@ -25,5 +27,11 @@ function answers() {
     }
   }
   return answers;
-}
-console.log(answers());
+}}
+const a = new Quiz()
+const anse = a.answers(
+    'topics/nighthawk_flashcard_data.txt'
+)
+console.log(anse)
+module.exports = Quiz
+// console.log(answers());
